@@ -1,0 +1,96 @@
+.center-top {
+  height: 9.375rem;
+  background-color: @color-blue;
+  color: #fff;
+  position: relative;
+  div {
+  	padding: 1.8rem 0 0 6.875rem;
+    img {
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: 100%;
+      position: absolute;
+      left: 0.938rem;
+      top: 3.125rem;
+    }
+    p{
+    	margin-top: 10px
+    }
+  }
+}
+
+.center-top>p{
+  text-align: right;
+  padding-right: 0.625rem;
+  padding-top: 0.625rem;
+}
+.nav{
+	height: 5.0rem;
+	background-color: #fff;
+	padding-top: 5px;
+	span{
+		color: #323232;
+	}
+	ul{
+		display: flex;
+			flex-direction: row;
+			align-items: center;
+		li{
+				width: 33%;
+				text-align: center;
+
+			a{
+				display: inline-block;
+				i{
+					font-size: 45px;
+				}
+				span{
+					display: inline-block;
+					width: 100%;
+					font-size: 12px;
+					padding-top: 8px;
+				}
+			}
+		}
+	}
+}
+.icon-bankcard{
+	background: url(../../common/image/center/bank-card.png) no-repeat center center;
+	display: inline-block;
+	width: 2.812rem;
+	height: 2.812rem;
+	background-size: contain;
+}
+.linka{
+	margin-top: 9px;
+	ul{
+		li{
+			height: 3.438rem;
+			line-height: 3.438rem;
+			background-color: #fff;
+			vertical-align: baseline;
+			padding-left: 10px;
+			a{
+				i{
+					font-size: 38px;
+				}
+				span{
+					color: #323232;
+					margin-left: 1.125rem;
+					vertical-align: super;
+				}
+			}
+		}
+	}
+}
+.linka>ul>li>a>i:nth-child(1){
+	color: @color-blue;
+}
+.linka>ul>li>a>i:nth-child(2){
+	float: right;
+	margin-right: 15px;
+	font-size: 30px;
+}
+.linka>ul>li{
+	border-bottom: 1px solid @border-line;
+}
