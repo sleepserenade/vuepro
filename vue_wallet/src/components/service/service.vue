@@ -1,66 +1,41 @@
 <template>
-  <swiper :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback">
-    <!-- slides -->
-    <swiper-slide>I'm Slide 1</swiper-slide>
-    <swiper-slide>I'm Slide 22</swiper-slide>
-    <swiper-slide>I'm Slide 3</swiper-slide>
-    <swiper-slide>I'm Slide 4</swiper-slide>
-    <swiper-slide>I'm Slide 5</swiper-slide>
-    <swiper-slide>I'm Slide 6</swiper-slide>
-    <swiper-slide>I'm Slide 7</swiper-slide>
-    <!-- Optional controls -->
-    <div class="swiper-pagination"  slot="pagination"></div>
-    <div class="swiper-button-prev" slot="button-prev"></div>
-    <div class="swiper-button-next" slot="button-next"></div>
-    <div class="swiper-scrollbar"   slot="scrollbar"></div>
-  </swiper>
+  <div class="finance">
+     <div class="finance-top">
+        <span>金融</span>
+        <span>我的理财</span>
+    </div>
+      <slider></slider>
+  </div>
+   
 </template>
 
 <script type="text/ecmascript-6">
-	// import Slider form 'base/slider/slider'
-	// import Vue from 'vue'
 	// import VueAwesomeSwiper from 'vue-awesome-swiper'
-	import Swiper from 'swiper'
-	Swiper.use({
-	  name: 'pluginName',
-	  params: {
-	    pluginSwitch: false,
-	  },
-	  on: {
-	    init() {
-	      if (!this.params.pluginSwitch) return
-	      console.log('init')
-	    },
-	    // swiper callback...
-	  }
-	})
+	// import Swiper from 'swiper'
+  import Slider from 'base/slider/slider' 
 
-	export default {
-    name: 'carrousel',
-    data() {
-      return {
-        swiperOption: {
-          // some swiper options/callbacks
-          // 所有的参数同 swiper 官方 api 参数
-          // ...
+  export default {
+    data (){
+        return{
+
         }
-      }
     },
-    computed: {
-      swiper() {
-        return this.$refs.mySwiper.swiper
-      }
-    },
-    mounted() {
-      // current swiper instance
-      // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
-      console.log('this is current swiper instance object', this.swiper)
-      this.swiper.slideTo(3, 1000, false)
-    }
-  }
+    created(){
 
+    },
+    methods: {
+
+    },
+    components:{
+      Slider
+    }
+
+  }
 </script>
 
-<style lang=less>
+<style scoped lang="less">
+  @import "../../common/less/variable.less";
+  @import "../../common/less/mixin.less";
+  @import "../../common/less/finance.less";
 	
 </style>
