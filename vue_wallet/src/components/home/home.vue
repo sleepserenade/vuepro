@@ -187,5 +187,8 @@
   @import "../../common/less/variable.less";
   @import "../../common/less/mixin.less";
   @import "../../common/less/home.less";
-
+	.container{
+		height: 100%;
+		width: 100%;
+	}
 </style>

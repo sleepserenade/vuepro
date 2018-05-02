@@ -4,6 +4,10 @@ import Home from 'components/home/home'
 import Mall from 'components/mall/mall'
 import Service from 'components/service/service'
 import Center from 'components/center/center'
+import Totalassets from 'components/totalassets/totalassets'
+import Userinfo from 'components/userinfo/userinfo'
+import Creditcard from 'components/creditcard/creditcard'
+
 
 
 Vue.use(Router)
@@ -32,7 +36,21 @@ export default new Router({
     {
       path: '/center',
       name: 'center',
-      component: Center
+      component: Center,
+      children:[
+        {
+          path: '/totalassets',
+          component :Totalassets
+        },
+        {
+          path:'/userinfo',
+          component :Userinfo
+        },
+        {
+          path:'/creditcard',
+          component:Creditcard
+        }
+      ]
     }
   ]
 })

@@ -3,8 +3,8 @@
      <div class="finance-top">
         <span>金融</span>
         <span>我的理财</span>
+        <slider></slider>
     </div>
-      <slider></slider>
   </div>
    
 </template>
@@ -37,5 +37,8 @@
   @import "../../common/less/variable.less";
   @import "../../common/less/mixin.less";
   @import "../../common/less/finance.less";
+  body{
+    touch-action: none;
+  }
 	
 </style>

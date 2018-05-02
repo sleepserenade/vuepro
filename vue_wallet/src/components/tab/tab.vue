@@ -7,7 +7,6 @@
     </router-link>
     <router-link tag="div" class="tab-item" to="/mall">
      <i class="iconfont">&#xe658;</i>
-
       <span class="tab-link">精品</span>
     </router-link>
     <router-link tag="div" class="tab-item" to="/service">
@@ -17,7 +16,6 @@
     </router-link>
     <router-link tag="div" class="tab-item" to="/center">
      <i class="iconfont">&#xe615;</i>
-
       <span class="tab-link">我的</span>
     </router-link>
   </div>
@@ -40,6 +38,7 @@
     height: 50px;
     line-height: 50px;
     background-color: #fbfbfb;
+    z-index: 1000;
   }
   .tab{
     display: flex;

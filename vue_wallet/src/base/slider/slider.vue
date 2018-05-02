@@ -3,13 +3,15 @@
 		<div class="slider">
 			<div class="slider-title">
 				<ul>
-					<li><a href=""><span>理财</span></a></li>
-					<li><a href=""><span>网贷</span></a></li>
-					<li><a href=""><span>保险</span></a></li>
+					<li aria-label="Go to slide 1"><span>理财</span></li>
+					<li aria-label="Go to slide 2"><span>网贷</span></li>
+					<li aria-label="Go to slide 3"><span>保险</span></li>
 				</ul>
 			</div>
 		</div>
+
 		<swiper :options="swiperOption" class="swiper-box">
+
 		    <swiper-slide class="swiper-item">
 		    	<div class="swiper-content">
 		    		<div class="cardlike"> 
@@ -151,6 +153,7 @@
 <script type="text/ecmascript-6">
 	import 'swiper/dist/css/swiper.css'
 	import { swiper, swiperSlide } from 'vue-awesome-swiper'
+	// window.addEventListener('touchmove', func, { passive: false })
 	export default {
 	  name: 'carrousel',
 	 data() {
@@ -167,13 +170,30 @@
 	       setWrapperSize :true,
 	       // autoHeight: true,
 	       // paginationType:"bullets",
-	       pagination : '.swiper-pagination',
-	       paginationClickable :true,
+	       // pagination : '.swiper-pagination',
+	       // paginationClickable :true,
 	       prevButton:'.swiper-button-prev',
 	       nextButton:'.swiper-button-next',
 	       // scrollbar:'.swiper-scrollbar',
 	       mousewheelControl : true,
 	       observeParents:true,
+	       pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        //     renderBullet: function (index, className) {
+        //  	 return '<span class="' + className + '">' + (index + 1) + '</span>';
+        // 	},
+		      // renderBullet: function (index, className) {
+		      //     switch(index){
+		      //       case 0:text='壹';break;
+		      //       case 1:text='贰';break;
+		      //       case 2:text='叁';break;
+		      //     }
+		      //     return '<span class="' + className + '">' + text + '</span>';
+		      //   },
+
+          	}
+	       // passive: false,
 	       // if you need use plugins in the swiper, you can config in here like this
 	       // 如果自行设计了插件，那么插件的一些配置相关参数，也应该出现在这个对象中，如下debugger
 	       // debugger: true,
@@ -205,13 +225,25 @@
 	   // this.swiper.slideTo(3, 1000, false)
 	 }
 	}
+
+	document.addEventListener('touchstart', function(event) {
+    // 判断默认行为是否可以被禁用
+    if (event.cancelable) {
+        // 判断默认行为是否已经被禁用
+        if (!event.defaultPrevented) {
+            event.preventDefault();
+        }
+    }
+}, false);
 </script>
 
 <style scoped lang="less">
   @import "../../common/less/variable";
   @import "../../common/less/slider";
 
-
+	.swiper-box{
+		margin-bottom: 50px!important;
+	}
 	.slider-title{
 		height: 2.188rem;
 		line-height: 2.188rem;
@@ -236,6 +268,7 @@
 	 html,body {
 		    position: relative;
 		    height: 100%;
+		    // touch-action: none!important;
 		  }
 		  body {
 		    background: #eee;
@@ -263,6 +296,10 @@
 		    -ms-flex-align: center;
 		    -webkit-align-items: center;
 		    align-items: center;
+		  }
+		  .swiper-pagination-fraction, .swiper-pagination-custom, 
+		  .swiper-container-horizontal > .swiper-pagination-bullets{
+		  	top:-15px!important;
 		  }
 
 </style>
