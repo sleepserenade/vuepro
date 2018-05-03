@@ -5,13 +5,14 @@
      <i class="iconfont">&#xe66c;</i>       
       <span class="tab-link">首页</span>
     </router-link>
-    <router-link tag="div" class="tab-item" to="/mall">
-     <i class="iconfont">&#xe658;</i>
-      <span class="tab-link">精品</span>
-    </router-link>
+    <!-- <router-link tag="div" class="tab-item" to=""> -->
+      <div class="tab-item " @click="toshop()">
+              <i class="iconfont">&#xe658;</i>
+              <span class="tab-link">精品</span>
+      </div>
+    <!-- </router-link> -->
     <router-link tag="div" class="tab-item" to="/service">
      <i class="iconfont">&#xe627;</i>
-
       <span class="tab-link">金融</span>
     </router-link>
     <router-link tag="div" class="tab-item" to="/center">
@@ -24,7 +25,13 @@
 </template>
 
 <script>
-  export default{};
+  export default{
+    methods:{
+      toshop(){
+        window.location.href="http://xflshop.sevensme.com/"
+      }
+    }
+  };
 </script>
 
 <style scoped lang="less">

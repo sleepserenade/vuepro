@@ -6,7 +6,9 @@ import router from './router'
 
 import 'common/less/index.less'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+// vue.use(VueAwesomeSwiper);
+
 
 fastclick.attach(document.body)
 

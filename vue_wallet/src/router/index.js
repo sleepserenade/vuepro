@@ -7,7 +7,10 @@ import Center from 'components/center/center'
 import Totalassets from 'components/totalassets/totalassets'
 import Userinfo from 'components/userinfo/userinfo'
 import Creditcard from 'components/creditcard/creditcard'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 
+import 'swiper/dist/css/swiper.css'
+Vue.use(VueAwesomeSwiper, /* { default global options } */)
 
 
 Vue.use(Router)
