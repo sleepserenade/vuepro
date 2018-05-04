@@ -3,8 +3,8 @@
 		<div class="center-top">
 			<p>消息</p>
 			<div >
-				<img @click="toinfo()" src="../../common/image/home/Group.jpg" alt="">
-				<p>15618687236</p>
+				<img @click="toinfo()" :src="data.avatar" alt="">
+				<p>{{data.mobile}}</p>
 				<p>安全认证：未认证</p>
 			</div>
 		</div>
@@ -46,12 +46,16 @@
 <script type="text/ecmascript-6">
 	// import Totalassets from 'components/totalassets/totalassets' 
 	// import Userinfo from 'components/userinfo/userinfo' 
+	import axios from 'axios'
 
 	export default {
 		data(){
 			return{
-			
+				data:[]
 			}
+		},
+		creaded(){
+			// this._getuserinfo()
 		},
 		methods :{
 			assets() {
@@ -68,10 +72,24 @@
 				this.$router.push({
 					path:'creditcard'
 				})
+			},
+			_getuserinfo(){
+				axios({
+					url:'http://xfl.sevensme.com/app/index.php?i=4&c=entry&do=apicenter&m=wallet'
+				})
+				.then((response)=>{
+					this.data = response.data
+					console.log(this.data)
+				})
+				.catch(function(error){
+					console.log(error)
+				})
 			}
 		},
+		mounted(){
+			this._getuserinfo()
+		},
 		components:{
-			
 		}
 
 	}

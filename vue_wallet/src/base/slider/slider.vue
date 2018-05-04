@@ -3,9 +3,9 @@
     <div class="slider">
       <div class="slider-title">
         <ul>
-          <li aria-label="Go to slide 1"><span class="active">理财</span></li>
-          <li aria-label="Go to slide 2"><span>网贷</span></li>
-          <li aria-label="Go to slide 3"><span>保险</span></li>
+          <li><span :class="{'active' : isActive == 0}">理财</span></li>
+          <li><span :class="{'active' : isActive == 1}">网贷</span></li>
+          <li><span :class="{'active' : isActive == 2}">保险</span></li>
         </ul>
       </div>
     </div>
@@ -164,52 +164,39 @@ export default {
         notNextTick: true,
         // swiper configs 所有的配置同swiper官方api配置
         autoplay: 3000,
-        // direction : 'vertical',
-        // effect:"coverflow",
         grabCursor: true,
         setWrapperSize: true,
         prevButton: '.swiper-button-prev',
         nextButton: '.swiper-button-next',
         // scrollbar:'.swiper-scrollbar',
+        preventClick: false,
         mousewheelControl: true,
         observeParents: true,
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
-          renderBullet: function(index, className) {
-            return '<span class="' + className + '">' + (index + 1) + '</span>';
-            console.log(currentClass)
-          },
+        },
+        on:{
+            slideChange: () => {
+                this.isActive = this.swiper.activeIndex;
+            }
         }
-      }
+      },
+      isActive : ''
     }
-  },
-  components: {
-
   },
   computed: {
     swiper() {
-      return this.$refs.mySwiper.swiper
+      return this.$refs.mySwiper ? this.$refs.mySwiper.swiper : undefined;
     }
-
-
   },
   mounted() {
-    // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
-
-    console.log('this is current swiper instance object', mySwiper.realIndex)
-  }
+  	// console.log(this.$refs.mySwiper.swiper,this.swiper.activeIndex)
+    // console.log(this.swiper.activeIndex)
+  },
+    components: {
+  },
 }
-
-document.addEventListener('touchstart', function(event) {
-  // 判断默认行为是否可以被禁用
-  if (event.cancelable) {
-    // 判断默认行为是否已经被禁用
-    if (!event.defaultPrevented) {
-      event.preventDefault();
-    }
-  }
-}, false);
 
 </script>
 <style scoped lang="less">
@@ -232,13 +219,17 @@ document.addEventListener('touchstart', function(event) {
       display: inline-block;
       width: 33%;
       text-align: center;
-      a {
-        span {
-          color: #a4b6ff;
-        }
+      span {
+        // color: #a4b6ff;
+        color: #ababab;
       }
     }
   }
+}
+
+span.active {
+  color: #fff!important;
+  border-bottom: 2px solid #fff;
 }
 
 html,
@@ -280,7 +271,13 @@ body {
 .swiper-pagination-fraction,
 .swiper-pagination-custom,
 .swiper-container-horizontal>.swiper-pagination-bullets {
-  top: -15px!important;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background: #000;
+    opacity: 0!important;
+    display: none!important;
 }
+
 
 </style>
