@@ -47,15 +47,15 @@
 	// import Totalassets from 'components/totalassets/totalassets' 
 	// import Userinfo from 'components/userinfo/userinfo' 
 	import axios from 'axios'
+	import login from 'components/login/login'
 
 	export default {
 		data(){
 			return{
-				data:[]
+				data:[],
 			}
 		},
-		creaded(){
-			// this._getuserinfo()
+		created(){
 		},
 		methods :{
 			assets() {
@@ -90,6 +90,7 @@
 			this._getuserinfo()
 		},
 		components:{
+			login
 		}
 
 	}

@@ -8,19 +8,18 @@ import Totalassets from 'components/totalassets/totalassets'
 import Userinfo from 'components/userinfo/userinfo'
 import Creditcard from 'components/creditcard/creditcard'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import Login from 'components/login/login'
+import Pay from 'components/pay/pay'
 
 import 'swiper/dist/css/swiper.css'
-Vue.use(VueAwesomeSwiper, /* { default global options } */)
-
+Vue.use(VueAwesomeSwiper, /* { default global options } */ )
 
 Vue.use(Router)
-
 export default new Router({
-  routes: [
-  	{
-  		path:'/',
-  		redirect:'/home'
-  	},
+  routes: [{
+      path: '/',
+      redirect: '/home'
+    },
     {
       path: '/home',
       name: 'home',
@@ -39,21 +38,37 @@ export default new Router({
     {
       path: '/center',
       name: 'center',
+      meta: {
+        title: '',
+        requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
+      },
       component: Center,
-      children:[
-        {
+      children: [{
           path: '/totalassets',
-          component :Totalassets
+          name: 'totalassets',
+          component: Totalassets
         },
         {
-          path:'/userinfo',
-          component :Userinfo
+          path: '/userinfo',
+          name: 'userinfo',
+          component: Userinfo
         },
         {
-          path:'/creditcard',
-          component:Creditcard
+          path: '/creditcard',
+          name: 'creditcard',
+          component: Creditcard
+        },
+        {
+          path: '/login',
+          name: 'login',
+          component: Login
         }
       ]
+    },
+    {
+      path:'/pay',
+      name:'pay',
+      component: Pay
     }
   ]
 })

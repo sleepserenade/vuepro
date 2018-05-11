@@ -11,7 +11,7 @@
 				<ul>
 					<li><span>头像</span> <img class="headimg" src="../../common/image/service/isure1.png" alt=""> </li>
 					<li><span>昵称</span> <i class="iconfont">&#xe6f8;</i></li>
-					<li><span>绑定手机号</span> <i class="iconfont">&#xe6f8;</i><span class="right">15618687236</span> </li>
+					<li @click="tobind()"><span>绑定手机号</span> <i class="iconfont">&#xe6f8;</i><span class="right">15618687236</span> </li>
 					<li><span>我的收款码</span><i class="iconfont">&#xe6f8;</i><i class="iconfont blue">&#xe7ad;</i></li>
 					<li><span>我的地址</span><i class="iconfont">&#xe6f8;</i></li>
 				</ul>
@@ -20,8 +20,6 @@
 				<ul>
 					<li><span>账户安全险</span> <i class="iconfont">&#xe6f8;</i></li>
 					<li><span>更多保险</span> <i class="iconfont">&#xe6f8;</i></li>
-
-					
 				</ul>
 			</div>
 			<div class="myinsure">
@@ -50,6 +48,11 @@
 				this.$router.push({
 					path:'center'
 				})
+			},
+			tobind(){
+				this.$router.push({
+				path:'login'
+			})
 			}
 		}
 	}
@@ -61,7 +64,7 @@
 
 	.userinfo{
 		position: fixed;
-		z-index: 100;
+		z-index: 1001;
 		top: 0;
 		left: 0;
 		right: 0;

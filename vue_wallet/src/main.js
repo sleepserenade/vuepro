@@ -3,6 +3,7 @@ import Vue from 'vue'
 import App from './App'
 import fastclick from 'fastclick'
 import router from './router'
+import Vuex from 'vuex'
 
 import 'common/less/index.less'
 
@@ -18,3 +19,17 @@ new Vue({
   router,
   render: h => h(App)
 })
+
+Vue.use(Vuex);
+
+var state = {
+	isLogin:0,
+};
+
+const mutations = {
+	changeLongin(state,date){
+		state.isLogin = data;
+	}
+}
+
+

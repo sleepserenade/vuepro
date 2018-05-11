@@ -44,7 +44,7 @@
 
 	.creditcard{
 		position: fixed;
-		z-index: 100;
+		z-index: 1001;
 		top: 0;
 		left: 0;
 		right: 0;

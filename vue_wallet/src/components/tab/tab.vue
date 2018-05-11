@@ -7,8 +7,8 @@
     </router-link>
     <!-- <router-link tag="div" class="tab-item" to=""> -->
       <div class="tab-item " @click="toshop()">
-              <i class="iconfont">&#xe658;</i>
-              <span class="tab-link">精品</span>
+            <i class="iconfont">&#xe658;</i>
+            <span class="tab-link">精品</span>
       </div>
     <!-- </router-link> -->
     <router-link tag="div" class="tab-item" to="/service">
@@ -25,12 +25,54 @@
 </template>
 
 <script>
+  import axios from 'axios'
   export default{
+    data(){
+      return{
+        data:[]
+      }
+    },
+    created(){
+      this.setTags(this.$route)
+      this._getuserinfo()
+    },
+    watch: {
+      $route(newValue){ //监听路由改变调用方法
+         this.setTags(newValue)
+      }
+    },
     methods:{
       toshop(){
         window.location.href="http://xflshop.sevensme.com/"
+      },
+      _getuserinfo(){
+        axios({
+          url:'http://xfl.sevensme.com/app/index.php?i=4&c=entry&do=apicenter&m=wallet'
+        })
+        .then((response)=>{
+          this.data = response.data
+          console.log(this.data)
+        })
+        .catch(function(error){
+          console.log(error)
+        })
+      },
+      setTags(route){
+        console.log(this.$route)
+        if(route.path == '/center'){
+             if(this.data.mobile){ //判断是否有手机号码
+              this.$router.push('/center')
+            }else{
+              this.$router.push('/login')
+            }
+        }
       }
+    },
+    mounted(){
+
     }
+
+
   };
 </script>
 
